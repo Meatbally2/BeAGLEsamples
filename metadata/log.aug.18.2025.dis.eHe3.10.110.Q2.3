@@ -1,0 +1,1615 @@
+BEAGLESYS is  /afs/rhic.bnl.gov/eic/PACKAGES/BeAGLE
+argument 1 is /gpfs/mnt/gpfs02/eic/wlin/BeAGLE/inputFiles/eHe3_10x110_Q2set_3.inp
+BEAGLESYS is  /afs/rhic.bnl.gov/eic/PACKAGES/BeAGLE
+ +-----------------------------------------------------------------------+
+ | Welcome to BeAGLE - Benchmark eA Generator for LEptoproduction        |
+ |                                                                       |
+ |         BBBBBB  EEEEEEE     A     GGGGGG  LL       EEEEEEE            |
+ |         BB   B  EE         A A    GG      LL       EE                 |
+ |         BB  B   EE        A   A   GG      LL       EE                 |
+ |         BBBBB   EEEEE     AAAAA   GG  GG  LL       EEEEE              |
+ |         BB  B   EE       A     A  GG   G  LL       EE                 |
+ |         BB   B  EE       A     A  GG   G  LL       EE                 |
+ |         BBBBBB  EEEEEEE  A     A  GGGGGG  LLLLLLL  EEEEEEE            |
+ |                                                                       |
+ | BeAGLE Version 1.03.02                                                |
+ |                                                                       |
+ | Authors: Elke Aschenauer, Mark D. Baker, J.H. Lee, Zhoudunming Tu,    |
+ |          Liang Zheng                                                  |
+ | Contact: mdbaker@mdbpads.com or zhoudunming@bnl.gov                   |
+ |                                                                       |
+ | This program (previously called DPMJetHybrid) links to:               |
+ | DPMJET, PHOJET, & PYTHIA (see version #s below) including also        |
+ | LHAPDF for pdfs, and FLUKA & PyQM for conventional nuclear effects    |
+ +-----------------------------------------------------------------------+
+
+                            _______.
+                         ,=~       '~\c.
+                        i`             '\.
+                       ,!                'c
+                      ,/                 . t
+                   ,_v`              ,,md@m.\
+               ,v=~`    m.           [d@@@@@/i
+             ,/`        '*          ],@@@@@@[[
+            ,!                      ]]@@@@@@[[
+            /                       ]]@@@@@@[[
+           i`                       ]]@@@@@@[[
+          g4.                       'i@@@@@A\|
+         ]W@b                        \/M@Af,|
+         'M@@W                      v/~===/`
+              \=c_______==~~~~\.   /
+                             ,mWmmWs
+                             '*A**Mf
+                             ,v`   \c.
+                           _=`       'c.              v==c.
+                         v/            'c           _K., i'i
+                      ,v~                \c_  __==~~  ]'i] ]
+                    ,=`                     ~~      'P`,!/ /
+                  _/`      .           -.           .!.' _/
+       ,.     ,_=~    ,_=/~[            N=__  __==~~'\/~~
+     ,/`'i  ,/`    _=~`    [            ]   ~~
+      t_.]~~~~~TXXXXG.     [            |.
+      ] 'Y~~~~~`     [     [             [
+      ]v`d           [     ]    __.       [
+      ] /]   ,/    .,!     ]  v~, /\c   ,v/~~=.
+      ][!d  -`    i` ]     ] / i! !i'i  [, [] /c
+      ][/]    v   [  ]     ]i` `   ' [ ] !    !'i
+      ]P,4  ,/   / / ]     ]]        [ ]        [
+      ][/] -`   ,|,-'i     ]]        [ ]        [
+      iV,]   v  / /  [     ]]        [ ]        [
+      ] \] ,/    '   [     |/i       [ ]       ,|
+~~~~~~Vg|] ` ____====f~~~~~~~~c    ,/~~~c     ,/~~~~~~~~~~~~~~~~~~~
+        '~~~~                 ~==/`     \c__=`
+
+ Art credit: asciiworld.com
+
+
+ +-----------------------------------------------------------------------+
+ |                                                                       |
+ |                          DPMJET version 3.0-5                         |
+ |                                                                       |
+ |                      (Last change: 06 Jan 2010)                       |
+ |                                                                       |
+ |            Authors: Stefan Roesler   (CERN)                           |
+ |                     Ralph Engel      (FZ Karlsruhe)                   |
+ |                     Johannes Ranft   (Siegen Univ.)                   |
+ |                                                                       |
+ +-----------------------------------------------------------------------+
+ | Please send suggestions, bug reports, etc. to: Stefan.Roesler@cern.ch |
+ +-----------------------------------------------------------------------+
+
+ Will use BEAGLESYS for .dat files: /afs/rhic.bnl.gov/eic/PACKAGES/BeAGLE.
+  
+**********************************************************************        
+* Example for a DTUNUC input file.                                            
+* Uncomment the input-cards according to your requirements.                   
+*                                                                             
+* Format: A10,6E10.0,A8                                                       
+*        (except for the section enclosed by "PHOINPUT" and "ENDINPUT"        
+*         which is format-free)                                               
+*         lines starting with "*" are comment lines                           
+**********************************************************************        
+*                                                                             
+* projectile / target                                                         
+* -------------------                                                         
+PROJPAR     0.00      0.00      0.00      0.00      0.00      0.00    ELECTRON
+TARPAR      3.00      2.00      0.00      0.00      0.00      0.00            
+
+ WARNING!
+ WARNING!
+ WARNING WILL ROBISON!
+ Intranuclear cascade disallowed for A=3
+ KTAUGE set to 0 to turn off INC
+
+TAUFOR      10.0      25.0      1.00      0.00      0.00      0.00            
+
+ WARNING!
+ WARNING!
+ WARNING WILL ROBISON!
+ Intranuclear cascade disallowed for A=3
+ KTAUGE set to 0 to turn off INC
+
+FERMI       2.00     0.620      1.00      0.00      0.00      0.00            
+* random number                                                               
+FSEED       13.0     -1.00      3.00      3.00      0.00      0.00            
+* output file with the name of fort.xx (xx=21-99)                             
+OUTPUT      92.0      0.00      0.00      0.00      0.00      0.00            
+* energy of interaction                                                       
+* ---------------------                                                       
+*	     momentum of beam1||momentum of beam2                                   
+MOMENTUM    10.0      110.      0.00      0.00      0.00      0.00            
+ BEAM1, BEAM2, MAscl, gamma, beta, EPN
+   10.000000000000000          110.00000000000000         0.93613074553494069          117.50920885753757         0.99996378953826581          2350.1416280578446     
+*	decay of pi0  2/0  decay/not decayed                                        
+PARDECAY    2.00      0.00      0.00      0.00      0.00      0.00            
+*	treatment of diffractive events                                             
+*DIFFRACT         -3         0         0         0                            
+* lepton tagger to sample events with certain kinematics cuts                 
+*		yMin      yMax    Q2Min    Q2Max   theta_Min theta_Max                     
+L-TAG      0.100E-01 0.950      100.     0.100E+05  0.00      6.00    .29     
+*VDM-PAR2           1        1         0                                      
+* model selection                                                             
+USERSET     15.0      9.00      0.00      0.00      0.00      0.00            
+ USERSET 15 selected. Fermi debug.
+            USER1 = pxmiss
+            USER2 = pxspec
+            USER3 = P00
+MODEL       0.00      0.00      0.00      0.00      0.00      0.00    PYTHIA  
+* if PYTHIA model specify pythia input cards                                  
+PY-INPUT    0.00      0.00      0.00      0.00      0.00      0.00    py_9    
+* PHOJET-specific input                                                       
+* ---------------------                                                       
+* The following lines control the event-generation with PHOJET for            
+* individual photon/nucleon-nucleon collisions.                               
+* For details see the PHOJET-manual available at                              
+*        http://lepton.bartol.udel.edu/~eng/phojet.html                       
+* Any options explained in the PHOJET-manual can be used in between           
+* the "PHOINPUT" and "ENDINPUT" cards.                                        
+PHOINPUT    0.00      0.00      0.00      0.00      0.00      0.00            
+
+  ===================================================
+                                                     
+       ----      PHOJET version 1.12      ----      
+                                                     
+  ===================================================
+      Authors: Ralph Engel      (FZ Karlsruhe)
+               Johannes Ranft   (Siegen Univ.)
+               Stefan Roesler   (CERN)
+  ---------------------------------------------------
+    Manual, updates, and further information:
+     http://www-ik.fzk.de/~engel/phojet.html
+  ---------------------------------------------------
+     please send suggestions / bug reports etc. to:
+              ralph.engel@fzk.de
+  ===================================================
+    $Date: 2000/06/25 21:59:19 $
+    $Revision: 1.12.1.35 $
+    (code version with interface to PYTHIA 6.x)
+    (code version for usage in DPMJET 3.x)
+  ===================================================
+
+ PROCESS              1           1           1           1           1           1           1           1
+  RETURN
+*                                                                             
+* Output                                                                      
+* ------                                                                      
+*   some default output (particle multiplicities etc.)                        
+HISTOGRAM   101.      102.      0.00      0.00      0.00      0.00            
+*                                                                             
+* Start of event generation                                                   
+* -------------------------                                                   
+*		number of events                                                           
+START      0.100E+07  0.00      0.00      0.00      0.00      0.00            
+ %%%%%%%%%% FLUKA RANDOM SEED INIT %%%%%%%%%%%
+          13          -1           3           3
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ DT_JSPARA: new value (default value)
+ Momentum read by BeAGLE: P(e)=   10.000000000000000       P(p)=   110.00000000000000     
+ the input file is: py_9                                                                                                                                                                                                                                                            
+1                                                                              
+ ******************************************************************************
+ ******************************************************************************
+ **                                                                          **
+ **                                                                          **
+ **              *......*                  Welcome to the Lund Monte Carlo!  **
+ **         *:::!!:::::::::::*                                               **
+ **      *::::::!!::::::::::::::*          PPP  Y   Y TTTTT H   H III   A    **
+ **    *::::::::!!::::::::::::::::*        P  P  Y Y    T   H   H  I   A A   **
+ **   *:::::::::!!:::::::::::::::::*       PPP    Y     T   HHHHH  I  AAAAA  **
+ **   *:::::::::!!:::::::::::::::::*       P      Y     T   H   H  I  A   A  **
+ **    *::::::::!!::::::::::::::::*!       P      Y     T   H   H III A   A  **
+ **      *::::::!!::::::::::::::* !!                                         **
+ **      !! *:::!!:::::::::::*    !!       This is PYTHIA version 6.428      **
+ **      !!     !* -><- *         !!       Last date of change:  5 Sep 2013  **
+ **      !!     !!                !!                                         **
+ **      !!     !!                !!       Now is  0 Jan 2000 at  0:00:00    **
+ **      !!                       !!                                         **
+ **      !!        lh             !!       Disclaimer: this program comes    **
+ **      !!                       !!       without any guarantees. Beware    **
+ **      !!                 hh    !!       of errors and use common sense    **
+ **      !!    ll                 !!       when interpreting results.        **
+ **      !!                       !!                                         **
+ **      !!                                Copyright T. Sjostrand (2011)     **
+ **                                                                          **
+ ** An archive of program versions and documentation is found on the web:    **
+ ** http://www.thep.lu.se/~torbjorn/Pythia.html                              **
+ **                                                                          **
+ ** When you cite this program, the official reference is to the 6.4 manual: **
+ ** T. Sjostrand, S. Mrenna and P. Skands, JHEP05 (2006) 026                 **
+ ** (LU TP 06-13, FERMILAB-PUB-06-052-CD-T) [hep-ph/0603175].                **
+ **                                                                          **
+ ** Also remember that the program, to a large extent, represents original   **
+ ** physics research. Other publications of special relevance to your        **
+ ** studies may therefore deserve separate mention.                          **
+ **                                                                          **
+ ** Main author: Torbjorn Sjostrand; Department of Theoretical Physics,      **
+ **   Lund University, Solvegatan 14A, S-223 62 Lund, Sweden;                **
+ **   phone: + 46 - 46 - 222 48 16; e-mail: torbjorn@thep.lu.se              **
+ ** Author: Stephen Mrenna; Computing Division, GDS Group,                   **
+ **   Fermi National Accelerator Laboratory, MS 234, Batavia, IL 60510, USA; **
+ **   phone: + 1 - 630 - 840 - 2556; e-mail: mrenna@fnal.gov                 **
+ ** Author: Peter Skands; CERN/PH-TH, CH-1211 Geneva, Switzerland            **
+ **   phone: + 41 - 22 - 767 24 47; e-mail: peter.skands@cern.ch             **
+ **                                                                          **
+ **                                                                          **
+ ******************************************************************************
+ ******************************************************************************
+     MSEL           changed from              1 to              2
+     mstp(14)       changed from             30 to             30
+     MSTP(15)       changed from              0 to              0
+     MSTP(16)       changed from              1 to              1
+     MSTP(17)       changed from              4 to              6
+     MSTP(18)       changed from              3 to              3
+     MSTP(19)       changed from              4 to              1
+     MSTP(20)       changed from              3 to              4
+     MSTP(32)       changed from              8 to              8
+     MSTP(38)       changed from              5 to              4
+     MSTP(51)       changed from              7 to          10042
+     MSTP(52)       changed from              1 to              2
+     MSTP(53)       changed from              3 to              3
+     MSTP(54)       changed from              1 to              1
+     MSTP(55)       changed from              5 to              5
+     MSTP(56)       changed from              1 to              1
+     MSTP(57)       changed from              1 to              1
+     MSTP(58)       changed from              5 to              5
+     MSTP(59)       changed from              1 to              1
+     MSTP(60)       changed from              7 to              7
+     MSTP(61)       changed from              2 to              2
+     MSTP(71)       changed from              1 to              1
+     MSTP(81)       changed from              1 to              0
+     MSTP(82)       changed from              4 to              1
+     MSTP(91)       changed from              1 to              1
+     MSTP(92)       changed from              3 to              3
+     MSTP(93)       changed from              1 to              1
+     MSTP(94)       changed from              3 to              2
+     MSTP(101)      changed from              3 to              1
+     MSTP(102)      changed from              1 to              1
+     MSTP(111)      changed from              1 to              1
+     MSTP(121)      changed from              0 to              0
+     PARP(2)        changed from       10.00000 to        2.00000
+     PARP(13)       changed from        1.00000 to        1.00000
+     PARP(18)       changed from        0.40000 to        0.17000
+     PARP(81)       changed from        1.90000 to        1.90000
+     PARP(89)       changed from     1800.00000 to     1800.00000
+     PARP(90)       changed from        0.25000 to        0.16000
+     PARP(91)       changed from        2.00000 to        0.40000
+     PARP(93)       changed from        5.00000 to        5.00000
+     PARP(97)       changed from        1.00000 to        6.00000
+     PARP(99)       changed from        1.00000 to        0.40000
+     PARP(100)      changed from        5.00000 to        5.00000
+     PARP(102)      changed from        0.28000 to        0.28000
+     PARP(103)      changed from        1.00000 to        1.00000
+     PARP(104)      changed from        0.80000 to        0.80000
+     PARP(111)      changed from        2.00000 to        2.00000
+     PARP(161)      changed from        2.20000 to        3.00000
+     PARP(162)      changed from       23.60000 to       24.60000
+     PARP(163)      changed from       18.40000 to       18.80000
+     PARP(164)      changed from       11.50000 to       11.50000
+     PARP(165)      changed from        0.50000 to        0.47679
+     PARP(166)      changed from        0.00000 to        0.67597
+     PARJ(1)        changed from        0.10000 to        0.10000
+     PARJ(2)        changed from        0.30000 to        0.30000
+     PARJ(11)       changed from        0.50000 to        0.50000
+     PARJ(12)       changed from        0.60000 to        0.60000
+     PARJ(21)       changed from        0.36000 to        0.40000
+     PARJ(32)       changed from        1.00000 to        1.00000
+     PARJ(33)       changed from        0.80000 to        0.80000
+     PARJ(41)       changed from        0.30000 to        0.30000
+     PARJ(42)       changed from        0.58000 to        0.58000
+     PARJ(45)       changed from        0.50000 to        0.50000
+     PARJ(170)      changed from        0.36000 to        0.32000
+     MSTJ(1)        changed from              1 to              1
+     MSTJ(12)       changed from              2 to              1
+     MSTJ(45)       changed from              5 to              5
+     MSTU(112)      changed from              5 to              5
+     MSTU(113)      changed from              3 to              5
+     MSTU(114)      changed from              5 to              5
+     CKIN(1)        changed from        2.00000 to        1.00000
+     CKIN(2)        changed from       -1.00000 to       -1.00000
+     CKIN(3)        changed from        0.00000 to        0.00000
+     CKIN(4)        changed from       -1.00000 to       -1.00000
+     CKIN(5)        changed from        1.00000 to        1.00000
+     CKIN(6)        changed from        1.00000 to        1.00000
+     CKIN(7)        changed from      -10.00000 to      -10.00000
+     CKIN(8)        changed from       10.00000 to       10.00000
+     CKIN(9)        changed from      -40.00000 to      -40.00000
+     CKIN(10)       changed from       40.00000 to       40.00000
+     CKIN(11)       changed from      -40.00000 to      -40.00000
+     CKIN(12)       changed from       40.00000 to       40.00000
+     CKIN(13)       changed from      -40.00000 to      -40.00000
+     CKIN(14)       changed from       40.00000 to       40.00000
+     CKIN(15)       changed from      -40.00000 to      -40.00000
+     CKIN(16)       changed from       40.00000 to       40.00000
+     CKIN(17)       changed from       -1.00000 to       -1.00000
+     CKIN(18)       changed from        1.00000 to        1.00000
+     CKIN(19)       changed from       -1.00000 to       -1.00000
+     CKIN(20)       changed from        1.00000 to        1.00000
+     CKIN(21)       changed from        0.00000 to        0.00000
+     CKIN(22)       changed from        1.00000 to        1.00000
+     CKIN(23)       changed from        0.00000 to        0.00000
+     CKIN(24)       changed from        1.00000 to        1.00000
+     CKIN(25)       changed from       -1.00000 to       -1.00000
+     CKIN(26)       changed from        1.00000 to        1.00000
+     CKIN(27)       changed from       -1.00000 to       -1.00000
+     CKIN(28)       changed from        1.00000 to        1.00000
+     CKIN(31)       changed from        2.00000 to        2.00000
+     CKIN(32)       changed from       -1.00000 to       -1.00000
+     CKIN(35)       changed from        0.00000 to        0.00000
+     CKIN(36)       changed from       -1.00000 to       -1.00000
+     CKIN(37)       changed from        0.00000 to        0.00000
+     CKIN(38)       changed from       -1.00000 to       -1.00000
+     CKIN(39)       changed from        4.00000 to        4.00000
+     CKIN(40)       changed from       -1.00000 to       -1.00000
+     CKIN(65)       changed from        0.00000 to        0.00000
+     CKIN(66)       changed from       -1.00000 to       -1.00000
+     CKIN(67)       changed from        0.00000 to        0.00000
+     CKIN(68)       changed from       -1.00000 to       -1.00000
+     CKIN(77)       changed from        2.00000 to        2.00000
+     CKIN(78)       changed from       -1.00000 to       -1.00000
+ WARNING: Shadowing corrections for gamma*+Au are being used. Not fully accurate for A=           3
+ WARNING: Shadowing corrections for gamma*+Cu are being used. Not fully accurate for A=           3
+ Opening file: /afs/rhic.bnl.gov/eic/PACKAGES/BeAGLE/shadowmapCa.dat                                                                                                                                                                                                          
+ *********************************************
+ NOW all parameters are read by PYTHIA
+ *********************************************
+ the output file is: outForPythiaMode/Output_eHe3_10x110_Q2set_3.txt                                                                                                                                                                                                                 
+ kinematics cut read by PYTHIA:
+   1.0000000000000000E-002  < y <   0.94999999999999996      ,    100.00000000000000       < Q2 <    10000.000000000000     
+ Successfully got seed from /dev/urandom:    252675176
+ SEED =    252675176
+ RANLUX LUXURY LEVEL SET BY RLUXGO : 4     P= 389
+ RANLUX INITIALIZED BY RLUXGO FROM SEEDS   252675176           0           0
+   2350.1416280518515        10.000000013005000       -2350.1416280517960       -10.000000000000000     
+ *********************************************
+ Nucleus: Z, A:            2             3
+ Per nucleon beam momentum:   110.00000000000000      GeV
+ sqrts for momentum matched ep:    66.339734579892891      GeV
+ Rapidity-matched neutron beam momentum:    110.40412943700545      GeV
+ Rapidity-matched proton beam momentum:    110.25137299707218      GeV
+ lepton beam momentum:    10.000000000000000      GeV
+ sqrts for eN system:    66.461477044844216      GeV
+ lepton beam energy in TRF:    2350.1416280518515      GeV
+ *********************************************
+ Density profile of the target: DONE
+ Charge number=           2  Mass number=           3
+ Quenching requested, qhat=   0.0000000000000000     
+ Using recoil factor:   0.0000000000000000     
+       Ptmodel iPtF:            3
+       EmitGluon iEg:           0
+       SupFactor:       1.0000000000000000     
+       Heavy Quarks:            0
+       Energy Thres:    0.0000000000000000     
+
+ WEAK DECAY TABLE
+ Particle, PID, MDCY value
+ K_S0                     310           1
+ pi0                      111           1
+ Lambda0                 3122           1
+ Lambdabar0             -3122           1
+ Sigma+                  3222           1
+ Sigmabar-              -3222           1
+ Sigma-                  3112           1
+ Sigmabar+              -3112           1
+ Xi0                     3322           1
+ Xibar0                 -3322           1
+ Xi-                     3312           1
+ Xibar+                 -3312           1
+ Omega-                  3334           1
+ Omegabar+              -3334           1
+ D+                       411           1
+ D-                      -411           1
+ D0                       421           1
+ Dbar0                   -421           1
+ D_s+                     431           1
+ D_s-                    -431           1
+ eta_c                    441           1
+ Lambda_c+               4122           1
+ Lambda_cbar-           -4122           1
+ Sigma_c++               4222           1
+ Sigma_c+                4212           1
+ Sigma_c0                4112           1
+ Sigma_cbar--           -4222           1
+ Sigma_cbar-            -4212           1
+ Sigma_cbar0            -4112           1
+ Xi_c+                   4232           1
+ Xi_c0                   4132           1
+ Xi_cbar-               -4232           1
+ Xi_cbar0               -4132           1
+ Sigma0                  3212           1
+ Sigmabar0              -3212           1
+ J/psi                    443           1
+ phi                      333           1
+
+1****************** PYINIT: initialization of PYTHIA routines *****************
+ ==== PYTHIA WILL USE LHAPDF ====
+ *************************************
+ *       LHAPDF Version 5.9.1        *
+ *   Configured for the following:   *
+ *             All PDFs              *
+ *         FULL MEMORY option        *
+ *    Maximum  3 concurrent set(s)   *
+ *************************************
+
+ >>>>>> PDF description: <<<<<<
+ CTEQ6L1 - LO with LO alpha_s                                    
+ Reference:                                                      
+ J. Pumplin, D.R. Stump, J. Huston, H.L. Lai, P. Nadolsky,       
+ W.K. Tung                                                       
+ hep-ph/0201195                                                  
+ >>>>>>                   <<<<<<
+
+ Parametrization: CTEQ6           
+
+ ==============================================
+ PDFset name /cvmfs/sft.cern.ch/lcg/external/lhapdfsets/5.9.1/share/PDFsets/cteq6ll.LHpdf    
+ with          1 members
+ ====  initialized. ===========================
+ Strong coupling at Mz for PDF is:  0.12978
+
+ ==============================================================================
+ I                                                                            I
+ I      PYTHIA will be initialized for gamma/e- on n0 user configuration      I
+ I                                                                            I
+ I                  px (GeV/c)   py (GeV/c)   pz (GeV/c)      E (GeV)         I
+ I        gamma/e-       0.000        0.000      -10.000       10.000         I
+ I        n0             0.000        0.000      110.404      110.408         I
+ I                                                                            I
+ I           corresponding to     66.461 GeV center-of-mass energy            I
+ I                                                                            I
+ ==============================================================================
+ EPS09LO unavailable for A=           3 using           4
+ /cvmfs/sft.cern.ch/lcg/external/lhapdfsets/5.9.1/share/PDFsets/EPS09LOR_4.LHgrid
+
+ ******** PYMAXI: summary of differential cross-section maximum search ********
+
+           ==========================================================
+           I                                      I                 I
+           I  ISUB  Subprocess name               I  Maximum value  I
+           I                                      I                 I
+           ==========================================================
+           I                                      I                 I
+           I   91   Elastic scattering            I    5.3764D-04   I
+           I   92   Single diffractive (XB)       I    4.1622D-04   I
+           I   93   Single diffractive (AX)       I    3.4111D-04   I
+           I   94   Double  diffractive           I    3.1395D-04   I
+           I   95   Low-pT scattering             I    2.5136D-03   I
+           I   96   Semihard QCD 2 -> 2           I    2.2864D-02   I
+           I                                      I                 I
+           ==========================================================
+
+ ******** PYMAXI: summary of differential cross-section maximum search ********
+
+           ==========================================================
+           I                                      I                 I
+           I  ISUB  Subprocess name               I  Maximum value  I
+           I                                      I                 I
+           ==========================================================
+           I                                      I                 I
+           I  131   f + gamma*_T -> f + g         I    2.2245D-04   I
+           I  132   f + gamma*_L -> f + g         I    1.2156D-05   I
+           I  135   g + gamma*_T -> f + fbar      I    9.1737D-04   I
+           I  136   g + gamma*_L -> f + fbar      I    1.6176D-04   I
+           I                                      I                 I
+           ==========================================================
+
+ ******** PYMAXI: summary of differential cross-section maximum search ********
+
+           ==========================================================
+           I                                      I                 I
+           I  ISUB  Subprocess name               I  Maximum value  I
+           I                                      I                 I
+           ==========================================================
+           I                                      I                 I
+           I   91   Elastic scattering            I    2.4478D-05   I
+           I   92   Single diffractive (XB)       I    1.9348D-05   I
+           I   93   Single diffractive (AX)       I    1.5414D-05   I
+           I   94   Double  diffractive           I    1.4487D-05   I
+           I   95   Low-pT scattering             I    1.2273D-04   I
+           I   96   Semihard QCD 2 -> 2           I    1.5462D-02   I
+           I                                      I                 I
+           ==========================================================
+
+ ******** PYMAXI: summary of differential cross-section maximum search ********
+
+           ==========================================================
+           I                                      I                 I
+           I  ISUB  Subprocess name               I  Maximum value  I
+           I                                      I                 I
+           ==========================================================
+           I                                      I                 I
+           I   99   q + gamma* -> q               I    3.2184D-03   I
+           I                                      I                 I
+           ==========================================================
+
+ ********************** PYINIT: initialization completed **********************
+ LAEVT:                kinematical cuts
+                      ------------------
+         W (min)   =    0.5 GeV    (max) =   66.5 GeV
+         y (min)   =  0.010        (max) =  0.950
+         Q^2 (min) =  100.0 GeV^2  (max) =10000.0 GeV^2
+ (Lab)   E_g (min) =    0.0 GeV
+ (Lab) theta (min) = 0.0000        (max) = 6.0000   for E_lpt >    0.0 GeV
+
+ resulting limits:
+         W (min)   =    6.7 GeV    (max) =   64.8 GeV
+
+ limits for Glauber-initialization:
+         W (min)   =    6.7 GeV    (max) =   64.8 GeV
+         Q^2 (min) =  100.0 GeV^2  (max) =10000.0 GeV^2
+
+
+
+ SHMAKI:    Glauber formalism (Shmakov et. al) - initialization
+            ---------------------------------------------------
+
+ variable energy run:     projectile-id:  7    target A/Z:   3 /  2
+
+        E_cm (GeV)    Q^2 (GeV^2)    Sigma_tot (mb)     Sigma_in (mb)
+       --------------------------------------------------------------
+            6.7         100.00           0.000              0.000
+            6.7         316.23           0.000              0.000
+            6.7         ******           0.000              0.000
+            6.7         ******           0.000              0.000
+            6.7         ******           0.000              0.000
+            9.3         100.00           0.001              0.000
+            9.3         316.23           0.000              0.000
+            9.3         ******           0.000              0.000
+            9.3         ******           0.000              0.000
+            9.3         ******           0.000              0.000
+           12.8         100.00           0.001              0.000
+           12.8         316.23           0.000              0.000
+           12.8         ******           0.000              0.000
+           12.8         ******           0.000              0.000
+           12.8         ******           0.000              0.000
+           17.7         100.00           0.001              0.000
+           17.7         316.23           0.000              0.000
+           17.7         ******           0.000              0.000
+           17.7         ******           0.000              0.000
+           17.7         ******           0.000              0.000
+           24.5         100.00           0.001              0.000
+           24.5         316.23           0.000              0.000
+           24.5         ******           0.000              0.000
+           24.5         ******           0.000              0.000
+           24.5         ******           0.000              0.000
+           33.9         100.00           0.002              0.000
+           33.9         316.23           0.000              0.000
+           33.9         ******           0.000              0.000
+           33.9         ******           0.000              0.000
+           33.9         ******           0.000              0.000
+           46.9         100.00           0.002              0.000
+           46.9         316.23           0.000              0.000
+           46.9         ******           0.000              0.000
+           46.9         ******           0.000              0.000
+           46.9         ******           0.000              0.000
+           64.8         100.00           0.002              0.000
+           64.8         316.23           0.001              0.000
+           64.8         ******           0.000              0.000
+           64.8         ******           0.000              0.000
+           64.8         ******           0.000              0.000
+ DT_SIGEMU:    Combined cross sections
+               -----------------------
+
+ E_cm =      6.7 GeV  Q^2 = 100.0 GeV^2 :
+
+ total                                    0.0002 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =      6.7 GeV  Q^2 = 316.2 GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =      6.7 GeV  Q^2 =1000.0 GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =      6.7 GeV  Q^2 =3162.3 GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =      6.7 GeV  Q^2 =****** GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =      9.3 GeV  Q^2 = 100.0 GeV^2 :
+
+ total                                    0.0005 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =      9.3 GeV  Q^2 = 316.2 GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =      9.3 GeV  Q^2 =1000.0 GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =      9.3 GeV  Q^2 =3162.3 GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =      9.3 GeV  Q^2 =****** GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     12.8 GeV  Q^2 = 100.0 GeV^2 :
+
+ total                                    0.0010 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     12.8 GeV  Q^2 = 316.2 GeV^2 :
+
+ total                                    0.0001 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     12.8 GeV  Q^2 =1000.0 GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     12.8 GeV  Q^2 =3162.3 GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     12.8 GeV  Q^2 =****** GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     17.7 GeV  Q^2 = 100.0 GeV^2 :
+
+ total                                    0.0013 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     17.7 GeV  Q^2 = 316.2 GeV^2 :
+
+ total                                    0.0002 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     17.7 GeV  Q^2 =1000.0 GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     17.7 GeV  Q^2 =3162.3 GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     17.7 GeV  Q^2 =****** GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     24.5 GeV  Q^2 = 100.0 GeV^2 :
+
+ total                                    0.0014 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     24.5 GeV  Q^2 = 316.2 GeV^2 :
+
+ total                                    0.0003 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     24.5 GeV  Q^2 =1000.0 GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     24.5 GeV  Q^2 =3162.3 GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     24.5 GeV  Q^2 =****** GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     33.9 GeV  Q^2 = 100.0 GeV^2 :
+
+ total                                    0.0016 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     33.9 GeV  Q^2 = 316.2 GeV^2 :
+
+ total                                    0.0004 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     33.9 GeV  Q^2 =1000.0 GeV^2 :
+
+ total                                    0.0001 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     33.9 GeV  Q^2 =3162.3 GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     33.9 GeV  Q^2 =****** GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     46.9 GeV  Q^2 = 100.0 GeV^2 :
+
+ total                                    0.0018 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     46.9 GeV  Q^2 = 316.2 GeV^2 :
+
+ total                                    0.0004 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     46.9 GeV  Q^2 =1000.0 GeV^2 :
+
+ total                                    0.0001 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     46.9 GeV  Q^2 =3162.3 GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     46.9 GeV  Q^2 =****** GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     64.8 GeV  Q^2 = 100.0 GeV^2 :
+
+ total                                    0.0022 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     64.8 GeV  Q^2 = 316.2 GeV^2 :
+
+ total                                    0.0005 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     64.8 GeV  Q^2 =1000.0 GeV^2 :
+
+ total                                    0.0001 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     64.8 GeV  Q^2 =3162.3 GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+
+ E_cm =     64.8 GeV  Q^2 =****** GeV^2 :
+
+ total                                    0.0000 +-    0.00000 mb
+ elastic                                  0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->A+X)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X+B)                0.0000 +-    0.00000 mb
+ quasi-elastic (A+B-->X, excl. 2-4)       0.0000 +-    0.00000 mb
+ production                               0.0000 +-    0.00000 mb
+ diff-el                                  0.0000 +-    0.00000 mb
+ diff-qel                                 0.0000 +-    0.00000 mb
+         Sigma_tot (max) =   0.002 mb
+  
+ DT_LAEVT: Initializing event loop
+ Determining Pythia/Rapgap subevent type (ep vs en)
+  
+ DT_LAEVT: ITMODE=0 (Default) selected.
+ Sequential Mode:       333358  en sub-collisions.
+     followed by:       666642  ep sub-collisions.
+  for a total of:      1000000  sub-collisions.
+
+
+ NCLPOT:    quantities for inclusion of nuclear effects
+            -------------------------------------------
+
+                                      projectile      target
+
+ Mass number / charge                   1 /  1        3 /  2
+ Binding energy  - proton   (GeV)     0.0000E+00    0.5493E-02
+                 - neutron  (GeV)     0.0000E+00    0.7718E-02
+ Fermi-potential - proton   (GeV)     0.0000E+00    0.2469E-01
+                 - neutron  (GeV)     0.0000E+00    0.1561E-01
+
+ Scale factor for Fermi-momentum    0.62
+
+ Coulomb-energy     0.0000E+00 GeV      0.9141E-03 GeV  
+
+
+
+ FER4M:   sampling of Fermi-momenta activated
+ SCLFAC: 3A/(4piR^3)=  0.69513397541106925      nucleons/fm^3
+ SCLFAC: A=           3  Nuclear density at origin:   0.17020668058376262      nucleons/fm^3
+
+ Advisory warning: maximum violated by  1.260D+00 in event      15
+ XSEC(96,1) increased to  1.948D-02
+
+ Advisory warning: maximum violated by  1.225D+00 in event      51
+ XSEC(96,1) increased to  2.386D-02
+
+ Advisory warning: maximum violated by  1.047D+00 in event     591
+ XSEC(96,1) increased to  2.393D-02
+    99999 events sampled
+      100000  events output done
+
+ Advisory warning: maximum violated by  1.189D+00 in event    3492
+ XSEC(96,1) increased to  2.844D-02
+
+ Advisory warning: maximum violated by  1.822D+00 in event     249
+ XSEC(96,1) increased to  4.347D-02
+   199999 events sampled
+      200000  events output done
+   299999 events sampled
+      300000  events output done
+ ===================================================
+ FROM PYTHIA (1st half: en collisions):
+ Pythia total cross section normalisation:   9.9564457630334550E-004  microbarn
+ Total Number of generated events pythia      333358
+ ===================================================
+ Actual totals from BeAGLE so far:
+ Total Number of generated events      333358
+ Total Number of trials      333358
+ ===================================================
+
+ ===== PDFSTA statistics for PDF under/over-flows ====
+
+ ====== STRUCTM statistics for nucleon/pion PDFs =====
+
+   total # of calls    672477896.00000000     
+   X  below PDF min    0.0000000000000000       or    0.0000000000000000       %
+   X  above PDF max    0.0000000000000000       or    0.0000000000000000       %
+   Q2 below PDF min    0.0000000000000000       or    0.0000000000000000       %
+   Q2 above PDF max    0.0000000000000000       or    0.0000000000000000       %
+
+ ========= STRUCTP statistics for photon PDFs ========
+
+   total # of calls    0.0000000000000000     
+
+1****************** PYINIT: initialization of PYTHIA routines *****************
+ ==== PYTHIA WILL USE LHAPDF ====
+ Strong coupling at Mz for PDF is:  0.12978
+
+ ==============================================================================
+ I                                                                            I
+ I      PYTHIA will be initialized for gamma/e- on p+ user configuration      I
+ I                                                                            I
+ I                  px (GeV/c)   py (GeV/c)   pz (GeV/c)      E (GeV)         I
+ I        gamma/e-       0.000        0.000      -10.000       10.000         I
+ I        p+             0.000        0.000      110.251      110.255         I
+ I                                                                            I
+ I           corresponding to     66.415 GeV center-of-mass energy            I
+ I                                                                            I
+ ==============================================================================
+
+ ******** PYMAXI: summary of differential cross-section maximum search ********
+
+           ==========================================================
+           I                                      I                 I
+           I  ISUB  Subprocess name               I  Maximum value  I
+           I                                      I                 I
+           ==========================================================
+           I                                      I                 I
+           I   91   Elastic scattering            I    5.3754D-04   I
+           I   92   Single diffractive (XB)       I    4.1618D-04   I
+           I   93   Single diffractive (AX)       I    3.4108D-04   I
+           I   94   Double  diffractive           I    3.1387D-04   I
+           I   95   Low-pT scattering             I    2.5135D-03   I
+           I   96   Semihard QCD 2 -> 2           I    2.2848D-02   I
+           I                                      I                 I
+           ==========================================================
+
+ ******** PYMAXI: summary of differential cross-section maximum search ********
+
+           ==========================================================
+           I                                      I                 I
+           I  ISUB  Subprocess name               I  Maximum value  I
+           I                                      I                 I
+           ==========================================================
+           I                                      I                 I
+           I  131   f + gamma*_T -> f + g         I    2.2955D-04   I
+           I  132   f + gamma*_L -> f + g         I    1.2431D-05   I
+           I  135   g + gamma*_T -> f + fbar      I    9.1714D-04   I
+           I  136   g + gamma*_L -> f + fbar      I    1.6172D-04   I
+           I                                      I                 I
+           ==========================================================
+
+ ******** PYMAXI: summary of differential cross-section maximum search ********
+
+           ==========================================================
+           I                                      I                 I
+           I  ISUB  Subprocess name               I  Maximum value  I
+           I                                      I                 I
+           ==========================================================
+           I                                      I                 I
+           I   91   Elastic scattering            I    2.4472D-05   I
+           I   92   Single diffractive (XB)       I    1.9345D-05   I
+           I   93   Single diffractive (AX)       I    1.5412D-05   I
+           I   94   Double  diffractive           I    1.4483D-05   I
+           I   95   Low-pT scattering             I    1.2271D-04   I
+           I   96   Semihard QCD 2 -> 2           I    1.5445D-02   I
+           I                                      I                 I
+           ==========================================================
+
+ ******** PYMAXI: summary of differential cross-section maximum search ********
+
+           ==========================================================
+           I                                      I                 I
+           I  ISUB  Subprocess name               I  Maximum value  I
+           I                                      I                 I
+           ==========================================================
+           I                                      I                 I
+           I   99   q + gamma* -> q               I    3.2303D-03   I
+           I                                      I                 I
+           ==========================================================
+
+ ********************** PYINIT: initialization completed **********************
+ KKEVNT: Old Q2,y:   119.48458333178225        2.8647617132845127E-002 Rerolling.
+  
+   399999 events sampled
+      400000  events output done
+
+ Advisory warning: maximum violated by  1.840D+00 in event     118
+ XSEC(96,1) increased to  2.842D-02
+   499999 events sampled
+      500000  events output done
+   599999 events sampled
+      600000  events output done
+ KKEVNT: Old Q2,y:   103.92817205934908        2.7192403189825434E-002 Rerolling.
+  
+   699999 events sampled
+      700000  events output done
+
+ Advisory warning: maximum violated by  1.277D+00 in event    5856
+ XSEC(96,1) increased to  2.917D-02
+ KKEVNT: Old Q2,y:   118.03670390860532        2.8904989606864318E-002 Rerolling.
+  
+   799999 events sampled
+      800000  events output done
+   899999 events sampled
+      900000  events output done
+
+ Advisory warning: maximum violated by  1.030D+00 in event     669
+ XSEC(96,1) increased to  2.926D-02
+   999999 events sampled
+     1000000  events output done
+1********* PYSTAT:  Statistics on Number of Events and Cross-sections *********
+
+ ==============================================================================
+ I                                  I                            I            I
+ I            Subprocess            I      Number of points      I    Sigma   I
+ I                                  I                            I            I
+ I----------------------------------I----------------------------I    (mb)    I
+ I                                  I                            I            I
+ I N:o Type                         I    Generated         Tried I            I
+ I                                  I                            I            I
+ ==============================================================================
+ I                                  I                            I            I
+ I   0 All included subprocesses    I       666645     387194358 I  1.279D-06 I
+ I  11 f + f' -> f + f' (QCD)       I          192             0 I  5.383D-10 I
+ I  12 f + fbar -> f' + fbar'       I            6             0 I  3.747D-11 I
+ I  13 f + fbar -> g + g            I            2             0 I  8.994D-13 I
+ I  28 f + g -> f + g               I          472             0 I  2.818D-10 I
+ I  53 g + g -> f + fbar            I            8             0 I  3.598D-12 I
+ I  68 g + g -> g + g               I          314             0 I  1.412D-10 I
+ I  91 Elastic scattering           I         4484     293562134 I  8.424D-09 I
+ I  92 Single diffractive (XB)      I         2040     227529419 I  3.883D-09 I
+ I  93 Single diffractive (AX)      I         1389     186250376 I  2.656D-09 I
+ I  94 Double  diffractive          I         1867     294505614 I  2.078D-09 I
+ I  95 Low-pT scattering            I          419     128500128 I  1.914D-09 I
+ I  99 q + gamma* -> q              I       654750    1681938513 I  1.258D-06 I
+ I 131 f + gamma*_T -> f + g        I          534     119504175 I  1.021D-09 I
+ I 132 f + gamma*_L -> f + g        I           59       6462930 I  9.195D-11 I
+ I 135 g + gamma*_T -> f + fbar     I           72     477523680 I  1.474D-10 I
+ I 136 g + gamma*_L -> f + fbar     I           37      84229025 I  8.140D-11 I
+ I                                  I                            I            I
+ ==============================================================================
+ I                                  I                            I            I
+ I   1 VMD * hadron                 I        10493   -2086587428 I  1.866D-08 I
+ I   2 direct * hadron              I          702     687719810 I  1.341D-09 I
+ I   3 anomalous * hadron           I          700     104123463 I  1.295D-09 I
+ I   4 DIS * hadron                 I       654750    1681938513 I  1.258D-06 I
+ I                                  I                            I            I
+ ==============================================================================
+
+ ********* Total number of errors, excluding junctions =        0 *************
+ ********* Total number of errors, including junctions =        0 *************
+ ********* Total number of warnings =                           0 *************
+ ********* Fraction of events that fail fragmentation cuts =  0.00013 *********
+
+1************ PYSTAT: User-Defined Limits on Kinematical Variables ************
+
+ ==============================================================================
+ I                                                                            I
+ I                 0.000D+00 <  m_hard (GeV/c^2)  <  5.755D+01                I
+ I    0.000D+00 ( 1.000D+00) <  p_T_hard (GeV/c)  <  2.878D+01                I
+ I                             m_finite (GeV/c^2) =  1.000D+00                I
+ I                -1.000D+01 <    y*_subsystem    <  1.000D+01                I
+ I                -4.000D+01 <      y*_large      <  4.000D+01                I
+ I                -4.000D+01 <      y*_small      <  4.000D+01                I
+ I                -4.000D+01 <     eta*_large     <  4.000D+01                I
+ I                -4.000D+01 <     eta*_small     <  4.000D+01                I
+ I                -1.000D+00 < cos(theta*)_large  <  1.000D+00                I
+ I                -1.000D+00 < cos(theta*)_small  <  1.000D+00                I
+ I                 0.000D+00 <        x_1         <  1.000D+00                I
+ I                 0.000D+00 <        x_2         <  1.000D+00                I
+ I                -1.000D+00 <        x_F         <  1.000D+00                I
+ I                -1.000D+00 <  cos(theta_hard)   <  1.000D+00                I
+ I                 2.000D+00 < m'_hard (GeV/c^2)  <  5.755D+01                I
+ I                                                                            I
+ ==============================================================================
+ The charm mass used is:    1.5000000000000000     
+ ===================================================
+ FROM PYTHIA (2nd half: ep collisions):
+ Pythia total cross section normalisation:   1.2788273430375462E-003  microbarn
+ Total Number of generated events pythia      666645
+ ===================================================
+ Actual totals from BeAGLE:
+ Total Number of generated events     1000000
+ Total Number of trials     1000003
+ ===================================================
+
+ ===== PDFSTA statistics for PDF under/over-flows ====
+
+ ====== STRUCTM statistics for nucleon/pion PDFs =====
+
+   total # of calls    1719235993.0000000     
+   X  below PDF min    0.0000000000000000       or    0.0000000000000000       %
+   X  above PDF max    0.0000000000000000       or    0.0000000000000000       %
+   Q2 below PDF min    0.0000000000000000       or    0.0000000000000000       %
+   Q2 above PDF max    0.0000000000000000       or    0.0000000000000000       %
+
+ ========= STRUCTP statistics for photon PDFs ========
+
+   total # of calls    0.0000000000000000     
+
+
+ HISTAT:              statistics - intranuclear cascade
+                      ---------------------------------
+
+ no. of events for normalization: (accepted final events, evt)    ******
+                                  (events before evap.-step, evt1)     0
+ no. of rejected events due to intranuclear cascade                    0
+
+ no. of wounded nucl. in proj./ target (mean per evt)       0.00 /  0.00
+ no. of particles unable to escape proj./ target (mean per evt)
+        baryons:  pos.   0.000 /  0.007   neg.   0.000 /  0.000
+        mesons:   pos.   0.000 /  0.000   neg.   0.000 /  0.000
+ maximum no. of generations treated (maximum allowed:   0)
+                                           (mean per evt)       0.00
+ no. of sec. interactions in proj./ target (mean per evt1)  0.000 /  0.000
+        out of which by inelastic interactions              0.000 /  0.000
+                     by elastic interactions                0.000 /  0.000
+                     by absorption (ap, K-, pi- only)       0.000 /  0.000
+
+
+ HISTAT:              statistics - residual nuclei, evaporation
+                      -----------------------------------------
+
+ no. of events for normal.: (events handled by FICONF, evt)            0
+                            (events passing the evap.-step, evt1)      0
+ no. of rejected events     (   0,   0,   0)                           0
+
+
+                      1) before evaporation-step:
+
+ residual nuclei:  (mean values per evt)            proj. / target
+
+        total number of particles                   0.000    0.000
+        out of which: protons                       0.000    0.000
+                      neutrons                      0.000    0.000
+                      baryons                       0.000    0.000
+                      pos. baryons                  0.000    0.000
+        total charge                                0.000    0.000
+
+        excitation energy (bef. evap.-step)     0.000E+00  0.000E+00
+        excitation energy per nucleon           0.000E+00  0.000E+00
+
+
+                      2) after  evaporation-step:
+
+ Fission:             not requested
+ Fermi-Break-up:      requested    
+ Gamma-deexcitation:  requested    
+
+ evaporation/deexcitation:  (mean values per evt1)  proj. / target
+
+        total number of evap. particles             0.000    0.000
+        out of which: protons                       0.000    0.000
+                      neutrons                      0.000    0.000
+                      deuterons                     0.000    0.000
+                      3-H                           0.000    0.000
+                      3-He                          0.000    0.000
+                      4-He                          0.000    0.000
+        nucl. deexcit. gammas                       0.000    0.000
+        heavy fragments                             0.000    0.000
+
+
+ HIMULT:                     particle - statistics
+                             ---------------------
+
+ fast/grey/black: EMU-def.
+
+ particle    |            average multiplicity
+             |     total         fast       grey     black    <pt>     f(1.7)
+ ------------+---------------------------------------------------------------
+ P          1|      2.291803     1.624816  0.08784  0.57915  0.44689  0.00709
+ AP         2|      0.247094     0.228141  0.01815  0.00080  1.27893  0.00003
+ E-         3|      1.009000     1.009000  0.00000  0.00000  9.90203  0.00018
+ E+         4|      0.007811     0.007811  0.00000  0.00000  0.47764  0.00000
+ NUE        5|      0.000848     0.000848  0.00000  0.00000  1.00356  0.00000
+ ANUE       6|      0.001647     0.001647  0.00000  0.00000  0.73074  0.00000
+ GAM        7|      1.035562     1.035562  0.00000  0.00000  0.56265  0.00004
+ NEU        8|      0.703080     0.680836  0.02111  0.00113  0.70929  0.00119
+ ANEU       9|      0.239719     0.221183  0.01782  0.00072  1.22871  0.00003
+ MUE+      10|      0.001535     0.001470  0.00006  0.00001  0.87678  0.00000
+ MUE-      11|      0.002163     0.002073  0.00008  0.00001  0.69370  0.00000
+ K0L       12|      0.937007     0.840507  0.08822  0.00828  0.69175  0.00005
+ PI+       13|      5.427674     5.002148  0.12749  0.29803  0.71397  0.00029
+ PI-       14|      5.143145     4.743397  0.12182  0.27792  0.65666  0.00027
+ K+        15|      0.546970     0.462747  0.02725  0.05697  1.09807  0.00004
+ K-        16|      0.487452     0.409177  0.02562  0.05266  0.88873  0.00004
+ LAM       17|      0.013505     0.011689  0.00164  0.00018  0.48362  0.00000
+ ALAM      18|      0.008404     0.007289  0.00100  0.00012  0.47784  0.00000
+ K0S       19|      0.582059     0.500040  0.07398  0.00804  0.39324  0.00002
+ SIGM-     20|      0.001104     0.000971  0.00012  0.00001  0.63845  0.00000
+ SIGM+     21|      0.001290     0.001124  0.00015  0.00002  0.61659  0.00000
+ SIGM0     22|      0.001064     0.000922  0.00013  0.00002  0.64579  0.00000
+ PI0       23|      2.648832     2.443502  0.18650  0.01883  0.42617  0.00012
+ K0        24|      0.162259     0.140844  0.01927  0.00215  0.44303  0.00001
+ AK0       25|      0.134238     0.116559  0.01593  0.00175  0.44867  0.00001
+ BLANK     26|      6.924849     6.423574  0.16948  0.33179  2.04248  0.00051
+ BLANK     27|     15.244921    13.561438  0.41701  1.26647  1.29086  0.00793
+ BLANK     28|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ BLANK     29|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ BLANK     30|     21.968034    19.792152  0.86575  1.31013  1.06269  0.00941
+ ETA550    31|      0.089395     0.077765  0.01048  0.00115  0.46683  0.00001
+ RHO+77    32|      0.028040     0.024688  0.00303  0.00032  0.67625  0.00000
+ RHO077    33|      0.057172     0.049719  0.00676  0.00069  0.54432  0.00000
+ RHO-77    34|      0.022753     0.020096  0.00241  0.00025  0.68459  0.00000
+ OM0783    35|      0.028448     0.025054  0.00309  0.00031  0.65863  0.00000
+ K*+892    36|      0.009528     0.008329  0.00109  0.00011  0.68409  0.00000
+ K*0892    37|      0.007591     0.006643  0.00085  0.00009  0.67451  0.00000
+ K*-892    38|      0.007414     0.006570  0.00076  0.00008  0.69716  0.00000
+ AK*089    39|      0.007419     0.006591  0.00075  0.00007  0.66109  0.00000
+ KA+125    40|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ KA0125    41|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ KA-125    42|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ AKA012    43|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ K*+142    44|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ K*0142    45|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ K*-142    46|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ AK*014    47|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ S+1385    48|      0.000197     0.000164  0.00003  0.00000  0.71181  0.00000
+ S01385    49|      0.000215     0.000188  0.00003  0.00000  0.60648  0.00000
+ S-1385    50|      0.000160     0.000138  0.00002  0.00000  0.77211  0.00000
+ L01820    51|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ L02030    52|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ N*++12    53|      0.001418     0.001243  0.00015  0.00002  0.77716  0.00000
+ N*+ 12    54|      0.001555     0.001364  0.00017  0.00002  0.75560  0.00000
+ N*012     55|      0.001335     0.001188  0.00014  0.00001  0.79366  0.00000
+ N*-12     56|      0.001231     0.001102  0.00011  0.00002  0.74665  0.00000
+ N*++16    57|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ N*+16     58|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ N*016     59|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ N*-16     60|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ N*+14     61|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ N*014     62|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ N*+15     63|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ N*015     64|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ N*+18     65|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ N*018     66|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ AN--12    67|      0.000793     0.000696  0.00009  0.00001  0.79257  0.00000
+ AN*-12    68|      0.000848     0.000751  0.00009  0.00001  0.71009  0.00000
+ AN*012    69|      0.000817     0.000705  0.00011  0.00001  0.77045  0.00000
+ AN*+12    70|      0.000726     0.000632  0.00008  0.00001  0.66645  0.00000
+ AN--16    71|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ AN*-16    72|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ AN*016    73|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ AN*+16    74|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ AN*-15    75|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ AN*015    76|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ DE*=24    77|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ RPI+49    78|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ RPI049    79|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ RPI-49    80|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ PIN++     81|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ PIN+0     82|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ PIN+-     83|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ PIN-0     84|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ PPPI      85|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ PNPI      86|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ APPPI     87|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ APNPI     88|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ K+PPI     89|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ K-PPI     90|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ K+NPI     91|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ K-NPI     92|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ S+1820    93|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ S-2030    94|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ ETA*      95|      0.004869     0.004325  0.00049  0.00005  0.68525  0.00000
+ PHI       96|      0.002071     0.001835  0.00021  0.00003  0.65313  0.00000
+ TETA0     97|      0.000640     0.000568  0.00006  0.00001  0.49702  0.00000
+ TETA-     98|      0.000689     0.000586  0.00009  0.00001  0.51714  0.00000
+ ASIG-     99|      0.000847     0.000739  0.00010  0.00001  0.65093  0.00000
+ ASIG0    100|      0.000842     0.000731  0.00010  0.00002  0.63537  0.00000
+ ASIG+    101|      0.000861     0.000746  0.00010  0.00001  0.68234  0.00000
+ ATETA0   102|      0.000486     0.000406  0.00007  0.00001  0.53385  0.00000
+ ATETA+   103|      0.000512     0.000450  0.00006  0.00000  0.57406  0.00000
+ SIG*+    104|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ SIG*0    105|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ SIG*-    106|      0.000000     0.000000  0.00000  0.00000  0.00000  0.00000
+ TETA*0   107|      0.000018     0.000017  0.00000  0.00000  0.73641  0.00000
+ TETA*    108|      0.000025     0.000023  0.00000  0.00000  0.67032  0.00000
+ OMEGA-   109|      0.000005     0.000005  0.00000  0.00000  0.71033  0.00000
+ ASIG*-   110|      0.000126     0.000109  0.00002  0.00000  0.63928  0.00000
+ ASIG*0   111|      0.000136     0.000117  0.00002  0.00000  0.73332  0.00000
+ ASIG*+   112|      0.000133     0.000114  0.00002  0.00000  0.71086  0.00000
+ ATET*0   113|      0.000028     0.000027  0.00000  0.00000  0.64277  0.00000
+ ATET*+   114|      0.000017     0.000016  0.00000  0.00000  0.65219  0.00000
+ OMEGA+   115|      0.000002     0.000002  0.00000  0.00000  1.71084  0.00000
+ DEUTERON 116|      0.033995     0.030329  0.00327  0.00039  0.39489  0.00000
+ 3-H      117|      0.007041     0.006259  0.00070  0.00008  0.40192  0.00000
+ 3-HE     118|      0.002877     0.002567  0.00028  0.00003  0.44027  0.00000
+ 4-HE     119|      0.011476     0.010167  0.00120  0.00011  0.44921  0.00000
+STOP        0.00      0.00      0.00      0.00      0.00      0.00            
+   ------------------------------------------------------------------
+  | Welcome to ROOT 6.20/02                        https://root.cern |
+  | (c) 1995-2020, The ROOT Team; conception: R. Brun, F. Rademakers |
+  | Built for linuxx8664gcc on Mar 15 2020, 15:25:34                 |
+  | From tags/v6-20-02@v6-20-02                                      |
+  | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q'       |
+   ------------------------------------------------------------------
+
+
+Processing BuildIt.C("Output_eHe3_10x110_Q2set_3.txt")...
+
+Processing outForPythiaMode/Output_eHe3_10x110_Q2set_3.txt
+Processing event 10000
+Processing event 20000
+Processing event 30000
+Processing event 40000
+Processing event 50000
+Processing event 60000
+Processing event 70000
+Processing event 80000
+Processing event 90000
+Processing event 100000
+Processing event 110000
+Processing event 120000
+Processing event 130000
+Processing event 140000
+Processing event 150000
+Processing event 160000
+Processing event 170000
+Processing event 180000
+Processing event 190000
+Processing event 200000
+Processing event 210000
+Processing event 220000
+Processing event 230000
+Processing event 240000
+Processing event 250000
+Processing event 260000
+Processing event 270000
+Processing event 280000
+Processing event 290000
+Processing event 300000
+Processing event 310000
+Processing event 320000
+Processing event 330000
+Processing event 340000
+Processing event 350000
+Processing event 360000
+Processing event 370000
+Processing event 380000
+Processing event 390000
+Processing event 400000
+Processing event 410000
+Processing event 420000
+Processing event 430000
+Processing event 440000
+Processing event 450000
+Processing event 460000
+Processing event 470000
+Processing event 480000
+Processing event 490000
+Processing event 500000
+Processing event 510000
+Processing event 520000
+Processing event 530000
+Processing event 540000
+Processing event 550000
+Processing event 560000
+Processing event 570000
+Processing event 580000
+Processing event 590000
+Processing event 600000
+Processing event 610000
+Processing event 620000
+Processing event 630000
+Processing event 640000
+Processing event 650000
+Processing event 660000
+Processing event 670000
+Processing event 680000
+Processing event 690000
+Processing event 700000
+Processing event 710000
+Processing event 720000
+Processing event 730000
+Processing event 740000
+Processing event 750000
+Processing event 760000
+Processing event 770000
+Processing event 780000
+Processing event 790000
+Processing event 800000
+Processing event 810000
+Processing event 820000
+Processing event 830000
+Processing event 840000
+Processing event 850000
+Processing event 860000
+Processing event 870000
+Processing event 880000
+Processing event 890000
+Processing event 900000
+Processing event 910000
+Processing event 920000
+Processing event 930000
+Processing event 940000
+Processing event 950000
+Processing event 960000
+Processing event 970000
+Processing event 980000
+Processing event 990000
+Processing event 1000000
+
+Processed outForPythiaMode/Output_eHe3_10x110_Q2set_3.txt
+TFile**		./Output_eHe3_10x110_Q2set_3.root	
+ TFile*		./Output_eHe3_10x110_Q2set_3.root	
+  OBJ: TTree	EICTree	my EIC tree : 0 at: 0x4146340
+  KEY: TProcessID	ProcessID0;1	cc0669de-7244-11f0-b99d-4e96c782beef
+  KEY: TTree	EICTree;1	my EIC tree
+Began on Tue Aug  5 17:40:27 2025
+Ended on Tue Aug  5 18:03:12 2025
+Processed 1000000 events containing 56217471 particles in 1364.61 seconds (0.00136461 sec/event)
